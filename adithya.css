@@ -41,6 +41,12 @@ nav li a:hover {
 nav li a:focus {
   color: black;
 }
+@media (max-width: 611px) {  /* fix this later */
+  nav ul {
+    float: left;
+    padding: 10px 10px;
+  }
+}
 
 #big-adithya {
   padding-top: 70px;
@@ -60,6 +66,9 @@ nav li a:focus {
   display: block;
   margin: 0 auto;
 }
+@media (max-width: 626px) {
+
+}
 
 .content {
   text-align: center;
@@ -72,54 +81,36 @@ nav li a:focus {
 .content a {
   color: black;
 }
-.text-left {
-  text-align: left;
-}
 .text-center {
   text-align: center;
+  margin: 0 auto;
+  width: 50%;
+  max-width: 600px;
+  min-width: 300px;
 }
 
 #man {
   overflow: hidden;
 }
 #man img {
-  width: 30%;
-  max-width: 300px;
-  padding-left: 30px;
-  display: inline-block;
-  float: left;
-}
-#man .text-left {
-  display: inline-block;
-  float: left;
-  padding-left: 30px;
-  padding-top: 40px;
-  width: 60%;
+  width: 300px;
 }
 
 #myth {
   text-align: center;
 }
-#myth .text-center {
-  margin: 0 auto;
-  width: 50%;
-  max-width: 600px;
-  min-width: 300px;
-}
 
 #legend {
   text-align: center;
 }
-#legend .text-center {
-  margin: 0 auto;
-  width: 50%;
-  max-width: 600px;
-  min-width: 300px;
+#legend img {
+  width: 200px;
 }
 
 #footer {
   text-align: center;
-  background-color: #bababa;
+  border-top: 1px solid black;
+  font-size: small;
   padding: 15px;
 }
 #footer a {
