@@ -1,0 +1,66 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: black;
+  font-family: "Open Sans";
+}
+
+#adithya-container {
+  max-width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+#whiteboard {
+  z-index: -1;
+  max-width: 100%;
+}
+
+#adithya-box {
+  position: absolute;
+  top: 350px;
+  left: calc(50% - 400px);
+  width: 750px;
+  height: 450px;
+  overflow: scroll;
+}
+@media (max-width: 975px) {
+  #adithya-box {
+    top: calc(50% - 50px);
+    left: 10%;
+    width: 70%;
+    height: 50%;
+  }
+}
+
+#adithya-editor {
+  width: 100%;
+  height: 50%;
+}
+
+#stuff {
+  font-family: "Open Sans";
+}
+#stuff button {
+  background-color: #630000;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #630000;
+  transition: 0.2s ease-in all;
+  margin-right: 30px;
+}
+#stuff button:hover {
+  background-color: white;
+  color: black;
+}
+
+#output {
+  width: 100%;
+  height: calc(50% - 40px);
+  text-align: left;
+  overflow: scroll;
+}

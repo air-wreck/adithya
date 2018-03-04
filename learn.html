@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learn to Code with Adithya!</title>
+  <link rel="stylesheet" href="learn.css" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Sacramento|Caveat">
+
+  <script src="http://www.skulpt.org/static/skulpt.min.js" type="text/javascript"></script>
+  <script src="http://www.skulpt.org/static/skulpt-stdlib.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <a href="adithya.html">&larr; Back to home</a>
+  <div id="adithya-container">
+    <!-- 975px seems to be a good breakpoint -->
+    <img id="whiteboard" src="img/png/adithya_nobackground.png">
+    <div id="adithya-box">
+      <div id="adithya-editor"># Learn to Code with Adithya P.!
+
+print 'Coding is cool.'
+print 'So is Adithya P.'
+</div>
+      <div id="stuff">
+        <button onclick="run_python();">Run Your Python!</button>
+        <span>See the output below:</span>
+      </div>
+      <pre id="output">
+
+      </pre>
+</div>
+  </div>
+  <script>
+    /* code totally not shamelessly taken from Blockat... */
+
+    var editor = ace.edit("adithya-editor");
+    editor.setTheme("ace/theme/github");
+    editor.getSession().setMode("ace/mode/python");
+
+    Sk.externalLibraries = {
+      numpy: {
+        path: "https://raw.githubusercontent.com/waywaaard/skulpt_numpy/master/numpy/__init__.js"
+      }
+    }
+
+    function builtinRead(x) {
+      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+      throw "File not found: '" + x + "'";
+      return Sk.builtinFiles["files"][x];
+    }
+
+    function outf(text) {
+      var mypre = document.getElementById("output");
+      mypre.innerHTML = mypre.innerHTML + text;
+    }
+
+    function run_python() {
+      var prog = editor.getValue();
+      var mypre = document.getElementById("output");
+      mypre.innerHTML = '';
+      Sk.pre = "output";
+      Sk.configure({output:outf, read:builtinRead});
+      (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'mycanvas';
+      var myPromise = Sk.misceval.asyncToPromise(function() {
+        return Sk.importMainWithBody("<stdin>", false, prog, true);
+      });
+      myPromise.then(function(mod) {
+        console.log('success');
+      },
+      function(err) {
+        console.log(err.toString());
+      });
+    }
+  </script>
+</body>
+</html>
